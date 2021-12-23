@@ -1,0 +1,564 @@
+CSiCol v10.1.0
+start settings
+	unit = SI (N-mm)	//US (kip-in)|SI (N-mm)|
+	designcode = ACI 318-14	//ACI 318-19|ACI 318-14|ACI 318-11|ACI 530-11|AS 3600-18|BS 8110-97|Chinese 2010|CSA A23-3-14|Eurocode 2: 2004|Hong Kong CP: 2013|IS 456: 2000|KBC 2016|Mexican RCDF: 2017|NZS 3101: 2006|Singapore CP 65-99|TS 500: 2000|
+	phitens_ACI = 0.900
+	phicomptied_ACI = 0.650
+	phicompspiral_ACI = 0.750
+	phitens_AS3600 = 0.850
+	phicomp_AS3600 = 0.650
+	gammaC_BS8110 = 1.500
+	gammaS_BS8110 = 1.150
+	phiconc_CSA = 0.650
+	phisteel_CSA = 0.850
+	gammaC = 1.500
+	gammaS = 1.150
+	alphaCC = 1.000
+	alphaCT = 1.000
+	rm = 0.800
+	RH = 50.000
+	gammaC_HKCP = 1.500
+	gammaS_HKCP = 1.150
+	gammaC_IS456 = 1.500
+	gammaS_IS456 = 1.150
+	phitens_KBC = 0.850
+	phicomptied_KBC = 0.650
+	phicompspiral_KBC = 0.700
+	phibend_RCDF = 0.900
+	phitens_RCDF = 0.800
+	phicomptied_RCDF = 0.750
+	phicompspiral_RCDF = 0.750
+	phitens_NZS = 0.850
+	phibend_NZS = 0.850
+	phicomp_NZS = 0.850
+	gammaC_SCP = 1.500
+	gammaS_SCP = 1.150
+	gammaC_TS500 = 1.500
+	gammaS_TS500 = 1.150
+	nodigits = 2 - 0.00	//0 - 0|1 - 0.0|2 - 0.00|3 - 0.000|4 - 0.0000|5 - 0.00000|6 - 0.000000|7 - 0.0000000|8 - 0.00000000|9 - 0.000000000|
+	digitsymbol = 12,345.00	//NONE|12,345.00|12 345,00|
+	showexponent = false
+end settings
+start rebarlist
+	start
+		name = d 6
+		value = 6.000
+		area = 28.300
+	end
+	start
+		name = d 8
+		value = 8.000
+		area = 50.300
+	end
+	start
+		name = d 10
+		value = 10.000
+		area = 78.500
+	end
+	start
+		name = d 12
+		value = 12.000
+		area = 113.100
+	end
+	start
+		name = d 14
+		value = 14.000
+		area = 153.900
+	end
+	start
+		name = d 16
+		value = 16.000
+		area = 201.100
+	end
+	start
+		name = d 18
+		value = 18.000
+		area = 254.500
+	end
+	start
+		name = d 20
+		value = 20.000
+		area = 314.200
+	end
+	start
+		name = d 22
+		value = 22.000
+		area = 380.100
+	end
+	start
+		name = d 25
+		value = 25.000
+		area = 490.900
+	end
+	start
+		name = d 26
+		value = 26.000
+		area = 530.900
+	end
+	start
+		name = d 28
+		value = 28.000
+		area = 615.800
+	end
+	start
+		name = d 32
+		value = 32.000
+		area = 804.200
+	end
+	start
+		name = d 36
+		value = 36.000
+		area = 1017.900
+	end
+	start
+		name = d 40
+		value = 40.000
+		area = 1256.600
+	end
+	start
+		name = d 50
+		value = 50.000
+		area = 1963.500
+	end
+end rebarlist
+start rebars
+	defaultrebarsize = d 25
+	defaultmaxrebarsize = d 32
+end rebars
+start projectinfo
+	name = Project 1
+	code = 0001
+	engineer = 
+	company = 
+	description = 
+end projectinfo
+start concreteconfinement
+	start
+		type = manderunconfined
+		text = Mander, Unconfined
+		fc = 30.000
+		fyc = 4.000
+		strainfc = 2.000
+		maxstrain = 5.000
+	end
+end concreteconfinement
+start steelconfinement
+	start
+		type = parkstrain
+		text = Park Strain Hardening
+		fy = 300.000
+		ft = 400.000
+		emod = 200000.000
+		hardstrain = 20.000
+		maxstrain = 120.000
+	end
+end steelconfinement
+start materials
+	start
+		classtype = concretematerial
+		text = Concrete (4000Psi)
+		type = Concrete
+		grade = 4000Psi
+		library = USA
+		uweight = 23563121.616
+		umass = 2402.770
+		modulus = 24821.126
+		pratio = 0.200
+		cfthermal = 0.0000099
+		smodulus = 10356.490
+		compstr = 27.579
+		tensstr = 4.137
+		compstrain = 2.219
+		ultstrain = 5.000
+	end
+	start
+		classtype = rebarmaterial
+		text = Rebar (A615Gr40)
+		type = Rebar
+		grade = Grade 40
+		start sscurve
+			selectedindex = 0
+			start value
+				type = parkstrain
+				text = Park Strain Hardening
+				fy = 275.790
+				ft = 413.685
+				emod = 199947.962
+				hardstrain = 20.000
+				maxstrain = 120.000
+			end value
+		end sscurve
+		library = USA
+		uweight = 76972863.941
+		umass = 7849.047
+		modulus = 199947.962
+		pratio = 0.300
+		cfthermal = 0.0000117
+		smodulus = 76903.062
+		mystress = 275.790
+		mtstress = 413.685
+		eystress = 303.369
+		etstress = 455.054
+		hardstrain = 20.000
+		ultstrain = 120.000
+	end
+	start
+		classtype = steelmaterial
+		text = Steel (A36)
+		type = Steel
+		grade = Grade 36
+		library = USA
+		uweight = 76972863.941
+		umass = 7849.047
+		modulus = 199947.962
+		pratio = 0.300
+		cfthermal = 0.0000117
+		smodulus = 76903.062
+		mystress = 248.211
+		mtstress = 399.896
+		eystress = 372.317
+		etstress = 439.886
+		hardstrain = 20.000
+		maxstrain = 140.000
+		ruptstrain = 200.000
+	end
+end materials
+start columns
+	start 
+		type = columnmodel
+		text = Column 1
+		name = Column
+		overridemagnification = false
+		isspiral = false
+		start sections
+			start
+				type = ColumnRectangle
+				text = Concrete Rectangle 1
+				material = 0
+				base = 1.000
+				start section
+					type = SectionRectangle
+					x = 0
+					y = 0
+					w = 600.000
+					h = 900.000
+					a = 0
+					i22 = 16200000000.000
+					i33 = 36450000000.000
+				end section
+				start sscurve
+					selectedindex = 0
+					start data
+						type = manderunconfined
+						text = Mander, Unconfined
+						fc = 27.579
+						fyc = 4.137
+						strainfc = 0.002
+						maxstrain = 0.005
+					end data
+				end sscurve
+			end
+		end sections
+		start rebars
+			start
+				type = RebarRectangle
+				text = Rebar Rectangle 1
+				start rebar
+					type = Rebar
+					material = 1.000
+					base = 1.000
+					angle = 0
+					cover = 40.000
+					x = 0
+					y = 0
+				end rebar
+				w = 600.000
+				h = 900.000
+				clearspacing = 25.000
+				start corner
+					start size
+						name = d 25
+						value = 25.000
+						area = 490.900
+					end size
+					actualcount = 4.000
+				end corner
+				start along2
+					count = 2.000
+					start size
+						name = d 25
+						value = 25.000
+						area = 490.900
+					end size
+					actualcount = 4.000
+				end along2
+				start along3
+					count = 1.000
+					start size
+						name = d 25
+						value = 25.000
+						area = 490.900
+					end size
+					actualcount = 2.000
+				end along3
+			end
+		end rebars
+		slenderness = false
+		start simpleload
+			start
+				text = Combination 1
+				pu = 4000.000
+				muxt = 400.000
+				muyt = 400.000
+				muxb = 300.000
+				muyb = 300.000
+			end
+		end simpleload
+		start slenderload
+			start
+				text = Combination 1
+				start x
+					isSway = false
+					start nonsway
+						pu = 4000.000
+						mutop = 400.000
+						mubot = 300.000
+						pud = 400.000
+					end nonsway
+					start sway
+						considersway = false
+						pu = 4000.000
+						mutop = 400.000
+						mubot = 300.000
+						storypu = 4000.000
+						storyvu = 100.000
+						relative = 1.000
+						criticalpu = 40000.000
+						stabilityindex = 0
+					end sway
+				end x
+				start y
+					isSway = false
+					start nonsway
+						pu = 4000.000
+						mutop = 400.000
+						mubot = 300.000
+						pud = 400.000
+					end nonsway
+					start sway
+						considersway = false
+						pu = 4000.000
+						mutop = 400.000
+						mubot = 300.000
+						storypu = 4000.000
+						storyvu = 100.000
+						relative = 1.000
+						criticalpu = 40000.000
+						stabilityindex = 0
+					end sway
+				end y
+			end
+		end slenderload
+		start framingsections
+			start
+				text = Beam Group 1
+				name = Column
+				overridemagnification = false
+				isspiral = false
+				start sections
+					start
+						type = ColumnRectangle
+						text = Concrete Rectangle 1
+						material = 0
+						base = 1.000
+						start section
+							type = SectionRectangle
+							x = 0
+							y = 0
+							w = 300.000
+							h = 450.000
+							a = 0
+							i22 = 1012500000.000
+							i33 = 2278125000.000
+						end section
+						start sscurve
+							selectedindex = 0
+							start data
+								type = manderunconfined
+								text = Mander, Unconfined
+								fc = 27.579
+								fyc = 4.137
+								strainfc = 0.002
+								maxstrain = 0.005
+							end data
+						end sscurve
+					end
+				end sections
+				start confinementzones
+				end confinementzones
+				start rebars
+					start
+						type = RebarRectangle
+						text = Rebar Rectangle 1
+						start rebar
+							type = Rebar
+							material = 1.000
+							base = 1.000
+							angle = 0
+							cover = 40.000
+							x = 0
+							y = 0
+						end rebar
+						w = 300.000
+						h = 450.000
+						clearspacing = 25.000
+						start corner
+							start size
+								name = d 25
+								value = 25.000
+								area = 490.900
+							end size
+							actualcount = 4.000
+						end corner
+						start along2
+							count = 2.000
+							start size
+								name = d 25
+								value = 25.000
+								area = 490.900
+							end size
+							actualcount = 4.000
+						end along2
+						start along3
+							count = 1.000
+							start size
+								name = d 25
+								value = 25.000
+								area = 490.900
+							end size
+							actualcount = 2.000
+						end along3
+					end
+				end rebars
+				slenderness = false
+				start simpleload
+				end simpleload
+				start slenderload
+				end slenderload
+				start framingsections
+				end framingsections
+			end
+			start
+				text = Column Group 1
+				name = Column
+				overridemagnification = false
+				isspiral = false
+				start sections
+					start
+						type = ColumnRectangle
+						text = Concrete Rectangle 1
+						material = 0
+						base = 1.000
+						start section
+							type = SectionRectangle
+							x = 0
+							y = 0
+							w = 600.000
+							h = 900.000
+							a = 0
+							i22 = 16200000000.000
+							i33 = 36450000000.000
+						end section
+						start sscurve
+							selectedindex = 0
+							start data
+								type = manderunconfined
+								text = Mander, Unconfined
+								fc = 27.579
+								fyc = 4.137
+								strainfc = 0.002
+								maxstrain = 0.005
+							end data
+						end sscurve
+					end
+				end sections
+				start confinementzones
+				end confinementzones
+				start rebars
+					start
+						type = RebarRectangle
+						text = Rebar Rectangle 1
+						start rebar
+							type = Rebar
+							material = 1.000
+							base = 1.000
+							angle = 0
+							cover = 40.000
+							x = 0
+							y = 0
+						end rebar
+						w = 600.000
+						h = 900.000
+						clearspacing = 25.000
+						start corner
+							start size
+								name = d 25
+								value = 25.000
+								area = 490.900
+							end size
+							actualcount = 4.000
+						end corner
+						start along2
+							count = 2.000
+							start size
+								name = d 25
+								value = 25.000
+								area = 490.900
+							end size
+							actualcount = 4.000
+						end along2
+						start along3
+							count = 1.000
+							start size
+								name = d 25
+								value = 25.000
+								area = 490.900
+							end size
+							actualcount = 2.000
+						end along3
+					end
+				end rebars
+				slenderness = false
+				start simpleload
+				end simpleload
+				start slenderload
+				end slenderload
+				start framingsections
+				end framingsections
+			end
+		end framingsections
+		start framing
+			nonfailing = false
+			XZtopbeam = false
+			XZbotbeam = false
+			YZtopbeam = false
+			YZbotbeam = false
+			XZkfactornonsway = 1.000
+			XZkfactorsway = 1.000
+			YZkfactornonsway = 1.000
+			YZkfactorsway = 1.000
+			ht = 3000.000
+			lc = 3500.000
+			lu = 3000.000
+			hb = 3000.000
+			XZw1 = 3000.000
+			XZw2 = 3000.000
+			XZw3 = 3000.000
+			XZw4 = 3000.000
+			YZw1 = 3000.000
+			YZw2 = 3000.000
+			YZw3 = 3000.000
+			YZw4 = 3000.000
+		end framing
+	end 
+end columns
